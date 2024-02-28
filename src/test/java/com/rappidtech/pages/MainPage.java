@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainPage {
 
     private static final Logger logger = LogManager.getLogger(MainPage.class);
@@ -34,7 +37,8 @@ public class MainPage {
     @FindBy(xpath = "//a[.='LinkedIn']")
     WebElement linkedinLink;
 
-
+    @FindBy(xpath = "//div[@class='inventory_item_name ']")
+    List<WebElement> listOfInventoryItems;
 
 
 
@@ -89,7 +93,19 @@ public class MainPage {
     }
 
 
-
+    /**
+     * This method will get the list of the inventory items from the main page
+     * @return list of inventory items
+     */
+    public ArrayList<String> getListOfInventoryItems(){
+        logger.info("Getting the inventory items from main page");
+        ArrayList<String> inventory = new ArrayList<>();
+        for(WebElement item : listOfInventoryItems){
+            logger.info("Items are: {" + item.getText() +"} ");
+            inventory.add(item.getText());
+        }
+        return inventory;
+    }
 
 
 

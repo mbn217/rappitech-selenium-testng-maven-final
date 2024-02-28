@@ -2,6 +2,7 @@ package com.rappidtech.tests;
 
 import com.rappidtech.pages.LoginPage;
 import com.rappidtech.pages.MainPage;
+import com.rappidtech.utilities.ConfigurationReader;
 import com.rappidtech.utilities.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,10 +19,10 @@ public class TestBase {
     @BeforeMethod
     public void setup(){
         logger.info("Setting up the driver...");
-        driver = Driver.getDriver("chrome");// Initializing the driver
+        driver = Driver.getDriver(ConfigurationReader.getProperty("browserType"));// Initializing the driver
         loginPage = new LoginPage(driver);// Initializing login page
         mainPage = new MainPage(driver);// Initializing main page
-        driver.get("https://www.saucedemo.com");
+        driver.get(ConfigurationReader.getProperty("url"));
     }
 
     @AfterMethod

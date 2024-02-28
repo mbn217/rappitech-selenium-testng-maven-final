@@ -30,8 +30,17 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='login-button']")
     WebElement submitButton;
 
+    @FindBy(xpath = "//h3[.='Epic sadface: Sorry, this user has been locked out.']")
+    WebElement lockedOutError;
 
+    @FindBy(xpath = "//div[@id='login_credentials']")
+    WebElement listOfAcceptedUsername;
 
+    @FindBy(xpath = "//h3[.='Epic sadface: Username is required']")
+    WebElement userNameRequiredMessage;
+
+    @FindBy(xpath = "//h3[.='Epic sadface: Password is required']")
+    WebElement passwordRequiredMessage;
 
 
 
@@ -69,6 +78,48 @@ public class LoginPage {
     }
 
 
+    /**
+     * This method will return the text when the user enter a locked-out username
+     * @return
+     */
+    public String getLockedOutErrorMessage(){
+        logger.info("Getting the Locked out user message from the login page");
+        return lockedOutError.getText();
+    }
+
+    /**
+     * This method will get the list of the valid usernames from the UI and return it in the form
+     * of an array
+     * @return array of the valid user list
+     */
+    public String[] getListOfAcceptedUserNames(){
+        logger.info("Getting the list of the valid usernames");
+        String listOfValidUsers = listOfAcceptedUsername.getText().split(":")[1];
+        String[] arrayOfValidUsers = listOfValidUsers.split("\n"); // this will have an extra empty index at position 0
+        String[] finalValidUserList  = new String[arrayOfValidUsers.length-1]; // we had to copy over the old array into new array and get rid of the index 0
+        for(int i = 1 ; i <=arrayOfValidUsers.length-1 ; i++){
+            finalValidUserList[i-1] = arrayOfValidUsers[i];
+        }
+        return finalValidUserList;
+    }
+
+    /**
+     * This method will return a message if the user doesn't enter a username into the username field
+     * @return String - error message that is displayed as error
+     */
+    public String getUserNameRequiredErrorMessage(){
+        logger.info("Getting the error message for the required username");
+        return userNameRequiredMessage.getText();
+    }
+
+    /**
+     * This method will return a message if the user doesn't enter a password into the password field
+     * @return String - error message that is displayed as error
+     */
+    public String getPasswordRequiredErrorMessage(){
+        logger.info("Getting the error message for the required password");
+        return passwordRequiredMessage.getText();
+    }
 
 
 
