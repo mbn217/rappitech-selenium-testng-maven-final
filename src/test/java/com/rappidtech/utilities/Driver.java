@@ -1,6 +1,8 @@
 package com.rappidtech.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Driver class that will take care of the logic for the WebDriver and getting instances of the driver back
  */
 public class Driver {
+    private static final Logger logger = LogManager.getLogger(Driver.class);
 
     public static WebDriver driver;
 
@@ -20,18 +23,22 @@ public class Driver {
      * @return it return an instance of the webdriver
      */
     public static WebDriver getDriver(String browser) {
+        logger.info("Getting a driver instance");
         if(driver == null){
             //Create webdriver based on the value of the browser
             switch (browser.toLowerCase()){
                 case "firefox":
+                    logger.info("Starting a firefox browser");
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 case "edge":
+                    logger.info("Starting a Edge browser");
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
                 default:
+                    logger.info("Starting a Chrome browser");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
@@ -45,6 +52,7 @@ public class Driver {
      * This method will close the driver and nullify it by setting it to null
      */
     public static void closeWebdriver(){
+        logger.info("Closing the browser");
         if(driver !=null){
             driver.quit();
             driver = null; // make the driver equal to null
