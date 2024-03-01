@@ -40,6 +40,12 @@ public class MainPage {
     @FindBy(xpath = "//div[@class='inventory_item_name ']")
     List<WebElement> listOfInventoryItems;
 
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
+    WebElement addToCartForBackPack;
+
+    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
+    WebElement shoppingCartBadge;
+
 
 
 
@@ -91,8 +97,6 @@ public class MainPage {
         logger.info("Getting the href from the LinkedIn Logo");
         return linkedinLink.getAttribute("href");
     }
-
-
     /**
      * This method will get the list of the inventory items from the main page
      * @return list of inventory items
@@ -105,6 +109,21 @@ public class MainPage {
             inventory.add(item.getText());
         }
         return inventory;
+    }
+
+    /**
+     * This methiod will click on the Add to Cart button for the back pack item
+     */
+    public void clickOnAddToCartForBackPackButton(){
+        logger.info("Clicking on the Add to Cart for Back Pack");
+        addToCartForBackPack.click();
+    }
+
+    /**
+     * This method will ...
+     */
+    public void checkShoppingCartBade(){
+
     }
 
 
