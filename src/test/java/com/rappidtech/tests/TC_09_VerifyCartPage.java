@@ -15,6 +15,8 @@ public class TC_09_VerifyCartPage extends TestBase{
      */
     @Test
     public void verify_Elements_In_Cart_Page_Are_Displayed(){
+        logger.info("Verify elements in cart page are displayed");
+        extentTest = extentReports.createTest("Verify elements in cart page are displayed");
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickOnSubmitButton();

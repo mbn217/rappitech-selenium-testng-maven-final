@@ -24,8 +24,8 @@ public class ExcelUtils {
      */
     public static void generateFirstNameLastNameIntoExcelSheet(String sheetName , String fileName){
 
-        Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet(sheetName);
+        workbook = new XSSFWorkbook();
+        sheet = workbook.createSheet(sheetName);
 
         for (int i = 0; i < 100 ; i++) {
             Row row = sheet.createRow(i);
@@ -57,8 +57,8 @@ public class ExcelUtils {
 
     public static void generateFirstNameAndPasswordIntoExcelSheet(String sheetName , String fileName, int numberOfRecords){
 
-        Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet(sheetName);
+        workbook = new XSSFWorkbook();
+        sheet = workbook.createSheet(sheetName);
 
         for (int i = 0; i < numberOfRecords ; i++) {
             Row row = sheet.createRow(i);

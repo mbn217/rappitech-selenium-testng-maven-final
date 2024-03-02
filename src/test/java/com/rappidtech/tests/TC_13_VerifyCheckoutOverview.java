@@ -23,6 +23,7 @@ public class TC_13_VerifyCheckoutOverview extends TestBase{
     @Test
     public void verify_Checkout_Information_For_Selected_Items(){
         logger.info("Verifying checkout Information after selecting items from main page");
+        extentTest = extentReports.createTest("Verifying checkout Information after selecting items from main page");
         String expectedTotalPrice = "$43.18";
         logger.info("Verifying checkout information for selected items in the main page ");
         loginPage.loginUsingValidCredentials();

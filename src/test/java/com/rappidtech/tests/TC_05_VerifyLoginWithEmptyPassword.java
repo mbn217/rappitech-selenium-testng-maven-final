@@ -14,6 +14,8 @@ public class TC_05_VerifyLoginWithEmptyPassword extends TestBase{
 
     @Test
     public void verify_Login_With_Empty_Password(){
+        logger.info("Verify login with empty password");
+        extentTest = extentReports.createTest("Verify login with empty password");
         String expectedPasswordRequiredErrorMessage = "Epic sadface: Password is required";
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("");

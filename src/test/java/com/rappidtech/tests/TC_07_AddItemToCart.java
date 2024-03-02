@@ -15,6 +15,8 @@ public class TC_07_AddItemToCart extends TestBase{
 
     @Test
     public void add_Item_To_Cart_For_Back_Pack(){
+        logger.info("Add item to cart for the back pack");
+        extentTest = extentReports.createTest("Add item to cart for the back pack");
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickOnSubmitButton();

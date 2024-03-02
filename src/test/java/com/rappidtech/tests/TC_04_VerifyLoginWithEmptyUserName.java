@@ -16,6 +16,8 @@ public class TC_04_VerifyLoginWithEmptyUserName extends TestBase{
 
     @Test
     public void verify_Login_With_Empty_UserName(){
+        logger.info("Verify login with empty username");
+        extentTest = extentReports.createTest("Verify login with empty username");
         String expectedUsernameRequiredErrorMessage = "Epic sadface: Username is required";
         loginPage.enterUserName("");
         loginPage.enterPassword("secret_sauce");

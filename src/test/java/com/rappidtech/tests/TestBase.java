@@ -47,6 +47,7 @@ public class TestBase {
     @BeforeMethod
     public void setup(){
         logger.info("Setting up the driver...");
+        extentReports = ExtentFactory.getInstance();
         driver = Driver.getDriver(ConfigurationReader.getProperty("browserType"));// Initializing the driver
         loginPage = new LoginPage(driver);// Initializing login page
         mainPage = new MainPage(driver);// Initializing main page

@@ -23,6 +23,8 @@ public class TC_06_VerifyListOfItemsInTheSauceDemoStore extends TestBase{
 
     @Test
     public void verify_List_Of_Items_In_The_SauceDemo_Store(){
+        logger.info("Verify list of items in the sauce demo store");
+        extentTest = extentReports.createTest("Verify list of items in the sauce demo store");
         ArrayList<String> expectedInventoryItems = new ArrayList<>(List.of("Sauce Labs Backpack",
                 "Sauce Labs Bike Light","Sauce Labs Bolt T-Shirt", "Sauce Labs Fleece Jacket"
                 , "Sauce Labs Onesie", "Test.allTheThings() T-Shirt (Red)" ));

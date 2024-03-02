@@ -15,6 +15,8 @@ public class TC_10_VerifyDefaultFilteringOption extends TestBase{
 
     @Test
     public void verify_Default_Filtering_Option(){
+        logger.info("Verify default filtering options");
+        extentTest = extentReports.createTest("Verify default filtering options");
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickOnSubmitButton();

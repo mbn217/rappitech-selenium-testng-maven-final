@@ -17,6 +17,7 @@ public class TC_11_VerifyItemInCart extends TestBase{
     @Test
     public void Verify_Item_Is_Added_To_Cart(){
         logger.info("Verifying that adding Sauce Labs Backpack is available in the Cart Page ");
+        extentTest = extentReports.createTest("Verifying that adding Sauce Labs Backpack is available in the Cart Page ");
         String expectedItemLabel = "Sauce Labs Backpack";
         String expectedItemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
         String expectedItemPrice = "$29.99";
