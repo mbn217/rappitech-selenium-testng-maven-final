@@ -1,6 +1,7 @@
 package com.rappidtech.tests;
 
 import com.rappidtech.pages.CartPage;
+import com.rappidtech.pages.CheckoutPage;
 import com.rappidtech.pages.LoginPage;
 import com.rappidtech.pages.MainPage;
 import com.rappidtech.utilities.ConfigurationReader;
@@ -17,6 +18,8 @@ public class TestBase {
     public LoginPage loginPage;
     public MainPage mainPage;
     public CartPage cartPage;
+    public CheckoutPage checkoutPage;
+
 
     @BeforeMethod
     public void setup(){
@@ -25,6 +28,7 @@ public class TestBase {
         loginPage = new LoginPage(driver);// Initializing login page
         mainPage = new MainPage(driver);// Initializing main page
         cartPage = new CartPage(driver);// Initializing cart page
+        checkoutPage = new CheckoutPage(driver); // Initializing checkout page
         driver.get(ConfigurationReader.getProperty("url"));
     }
 

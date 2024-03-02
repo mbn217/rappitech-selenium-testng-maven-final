@@ -55,6 +55,8 @@ public class CartPage {
 
 
 
+
+
     //+++++++++++++++++++++++++++++++++++++++++++++ Method / Functions +++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -114,7 +116,10 @@ public class CartPage {
     }
 
 
-
+    public void clickOnCheckoutButton(){
+        logger.info("Clicking on Checkout Button");
+        checkoutButton.click();
+    }
 
 
 }
