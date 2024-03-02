@@ -42,6 +42,10 @@ public class LoginPage {
     @FindBy(xpath = "//h3[.='Epic sadface: Password is required']")
     WebElement passwordRequiredMessage;
 
+    @FindBy(xpath = "//h3[.='Epic sadface: Username and password do not match any user in this service']")
+    WebElement wrongUserNameAndPasswordLabel;
+
+
 
 
 
@@ -131,6 +135,9 @@ public class LoginPage {
     }
 
 
-
+    public String getErrorMessageForWrongUserNamePassword(){
+        logger.info("Getting the error message when selecting wrong username and password");
+        return wrongUserNameAndPasswordLabel.getText();
+    }
 
 }

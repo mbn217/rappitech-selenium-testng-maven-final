@@ -68,7 +68,8 @@ public class MainPage {
     WebElement backPackPriceLabel;
 
 
-
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-bike-light']")
+    WebElement addToCartButtonForBikeLight;
 
 
     //+++++++++++++++++++++++++++++++++++++++++++++ Method / Functions +++++++++++++++++++++++++++++++++++++++++++++++
@@ -218,4 +219,8 @@ public class MainPage {
         return backPackPriceLabel.getText();
     }
 
+    public void clickOnAddToCartForBikeLightButton() {
+        logger.info("Clicking on the Add to cart for the Bike Light Item");
+        addToCartButtonForBikeLight.click();
+    }
 }

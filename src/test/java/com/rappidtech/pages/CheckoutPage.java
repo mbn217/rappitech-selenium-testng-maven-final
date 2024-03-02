@@ -59,4 +59,26 @@ public class CheckoutPage {
     }
 
 
+    public void enterFirstName(String firstName){
+        logger.info("Entering "+ firstName + " into the First Name input box");
+        firstNameInputBox.sendKeys(firstName);
+    }
+    public void enterLastName(String lastName){
+        logger.info("Entering "+ lastName + " into the Last Name input box");
+        lastNameInputBox.sendKeys(lastName);
+    }
+
+    public void enterZipCode(String zipCode){
+        logger.info("Entering "+ zipCode + " into Zip Code input box");
+        zipCodeInputBox.sendKeys(zipCode);
+    }
+
+    public void clickOnContinueButton(){
+        logger.info("Clicking on Continue button");
+        continueButton.click();
+    }
+
+
+
+
 }
