@@ -92,7 +92,7 @@ public class CartPage {
 
     /**
      * Will check if the Description label in the Cart page is displayed or not
-     * @return
+     * @return true/false if value displayed or not
      */
     public boolean isDescriptionLabelDisplayed(){
         logger.info("Check is the Description label is displayed or not");
@@ -100,22 +100,34 @@ public class CartPage {
         return descriptionLabel.isDisplayed();
     }
 
-
+    /**
+     * This methogd will return the label text
+     * @return text
+     */
     public String getBackPackItemLabel(){
         logger.info("Getting the label of the BackPack item from Cart page");
         return backPackItemLabel.getText();
     }
+    /**
+     * This methogd will return the label text
+     * @return text
+     */
     public String getBackPackDescriptionLabel(){
         logger.info("Getting the Description of the BackPack item from Cart page");
         return backPackDescriptionLabel.getText();
     }
-
+    /**
+     * This methogd will return the label text
+     * @return text
+     */
     public String getBackPackPriceLabel(){
         logger.info("Getting the Price of the BackPack item from Cart page");
         return backPackPriceLabel.getText();
     }
 
-
+    /**
+     * This method will click on a checkout button
+     */
     public void clickOnCheckoutButton(){
         logger.info("Clicking on Checkout Button");
         checkoutButton.click();
