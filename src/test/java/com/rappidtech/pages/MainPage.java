@@ -204,21 +204,35 @@ public class MainPage {
         return false;
     }
 
-
+    /**
+     * This method will get the text for the Back Pack Label
+     * @return text
+     */
     public String getBackPackItemLabel(){
         logger.info("Getting the label of the BackPack item from Cart page");
         return backPackItemLabel.getText();
     }
+
+    /**
+     * This method will get the Description for the Back Pack Label
+     * @return text
+     */
     public String getBackPackDescriptionLabel(){
         logger.info("Getting the Description of the BackPack item from Cart page");
         return backPackDescriptionLabel.getText();
     }
-
+    /**
+     * This method will get the Price for the Back Pack Label
+     * @return text
+     */
     public String getBackPackPriceLabel(){
         logger.info("Getting the Price of the BackPack item from Cart page");
         return backPackPriceLabel.getText();
     }
-
+    /**
+     * This method will click on the Add to cart button for the Bike Light button
+     * @return text
+     */
     public void clickOnAddToCartForBikeLightButton() {
         logger.info("Clicking on the Add to cart for the Bike Light Item");
         addToCartButtonForBikeLight.click();
