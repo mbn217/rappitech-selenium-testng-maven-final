@@ -39,6 +39,15 @@ public class CartPage {
     @FindBy(xpath = "//div[@class='cart_desc_label']")
     WebElement descriptionLabel;
 
+    @FindBy(xpath = "//div[@class='inventory_item_name']")
+    WebElement backPackItemLabel;
+
+    @FindBy(xpath = "//div[@class='inventory_item_desc']")
+    WebElement backPackDescriptionLabel;
+
+    @FindBy(xpath = "//div[@class='inventory_item_price'][.='$29.99']")
+    WebElement backPackPriceLabel;
+
 
 
 
@@ -88,6 +97,24 @@ public class CartPage {
         SeleniumUtils.waitForVisibilityOfElement(driver , descriptionLabel);
         return descriptionLabel.isDisplayed();
     }
+
+
+    public String getBackPackItemLabel(){
+        logger.info("Getting the label of the BackPack item from Cart page");
+        return backPackItemLabel.getText();
+    }
+    public String getBackPackDescriptionLabel(){
+        logger.info("Getting the Description of the BackPack item from Cart page");
+        return backPackDescriptionLabel.getText();
+    }
+
+    public String getBackPackPriceLabel(){
+        logger.info("Getting the Price of the BackPack item from Cart page");
+        return backPackPriceLabel.getText();
+    }
+
+
+
 
 
 }

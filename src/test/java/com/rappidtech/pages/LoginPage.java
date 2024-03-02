@@ -1,6 +1,6 @@
 package com.rappidtech.pages;
 
-import com.rappidtech.utilities.Driver;
+import com.rappidtech.utilities.ConfigurationReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -77,6 +77,15 @@ public class LoginPage {
         submitButton.click();
     }
 
+    /**
+     * This method will login into sauce demo using valid credentials
+     */
+    public void loginUsingValidCredentials(){
+        logger.info("Logging to sauce demo using valid credentials");
+        enterUserName(ConfigurationReader.getProperty("validUserName"));
+        enterPassword(ConfigurationReader.getProperty("validPassword"));
+        clickOnSubmitButton();
+    }
 
     /**
      * This method will return the text when the user enter a locked-out username

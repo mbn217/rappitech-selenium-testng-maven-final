@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -57,7 +58,14 @@ public class MainPage {
     @FindBy(xpath = "//select[@class='product_sort_container']")
     WebElement filteringSelection;
 
+    @FindBy(xpath = "//div[.='Sauce Labs Backpack']")
+    WebElement backPackItemLabel;
 
+    @FindBy(xpath = "//a[@id='item_4_title_link']/following-sibling::div")
+    WebElement backPackDescriptionLabel;
+
+    @FindBy(xpath = "//div[@class='inventory_item_price'][.='$29.99']")
+    WebElement backPackPriceLabel;
 
 
 
@@ -193,6 +201,21 @@ public class MainPage {
             }
         }
         return false;
+    }
+
+
+    public String getBackPackItemLabel(){
+        logger.info("Getting the label of the BackPack item from Cart page");
+        return backPackItemLabel.getText();
+    }
+    public String getBackPackDescriptionLabel(){
+        logger.info("Getting the Description of the BackPack item from Cart page");
+        return backPackDescriptionLabel.getText();
+    }
+
+    public String getBackPackPriceLabel(){
+        logger.info("Getting the Price of the BackPack item from Cart page");
+        return backPackPriceLabel.getText();
     }
 
 }
