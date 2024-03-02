@@ -30,7 +30,7 @@ public class TC_02_VerifyLoginWithInValidUserNameAndPassword extends TestBase{
     @Test(dataProvider = "data-login")
     public void verify_Login_With_Invalid_UserName_And_Password_List(String userName, String password){
         logger.info("Verify login with Invalid username and password test case");
-        String expectedWrongMessage = "pic sadface: Username and password do not match any user in this service";
+        String expectedWrongMessage = "Epic sadface: Username and password do not match any user in this service";
         loginPage.enterUserName(userName);
         loginPage.enterPassword(password);
         loginPage.clickOnSubmitButton();

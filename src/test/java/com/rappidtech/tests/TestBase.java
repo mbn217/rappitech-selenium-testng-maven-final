@@ -58,8 +58,8 @@ public class TestBase {
 
     @AfterMethod
     public void tearDown(ITestResult result){
-        SeleniumUtils.getResults(result , driver , extentTest);
         logger.info("Closing the driver...");
+        SeleniumUtils.getResults(result , driver , extentTest);
         Driver.closeWebdriver();
     }
 

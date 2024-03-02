@@ -25,14 +25,13 @@ public class TC_11_VerifyItemInCart extends TestBase{
 
 
         mainPage.clickOnAddToCartForBackPackButton();
-       mainPage.clickOnShoppingCartLinkIcon();
+        mainPage.clickOnShoppingCartLinkIcon();
 
         Assert.assertEquals(cartPage.getBackPackItemLabel() , expectedItemLabel); // verifying the item label are matching
         Assert.assertEquals(cartPage.getBackPackDescriptionLabel() , expectedItemDescription);
         Assert.assertEquals(cartPage.getBackPackPriceLabel(), expectedItemPrice);
 
         //Verify against what you added from the main page
-
         Assert.assertEquals(cartPage.getBackPackItemLabel()  , mainPage.getBackPackItemLabel());
         Assert.assertEquals(cartPage.getBackPackDescriptionLabel()  , mainPage.getBackPackDescriptionLabel());
         Assert.assertEquals(cartPage.getBackPackPriceLabel()  , mainPage.getBackPackPriceLabel());

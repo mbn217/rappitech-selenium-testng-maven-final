@@ -17,6 +17,7 @@ public class TC_12_VerifyCheckout extends TestBase{
 
     @Test
     public void verify_CheckoutPage_Labels(){
+        logger.info("Verifying checkout page labels");
         loginPage.loginUsingValidCredentials();
         mainPage.clickOnShoppingCartLinkIcon();
         cartPage.clickOnCheckoutButton();
