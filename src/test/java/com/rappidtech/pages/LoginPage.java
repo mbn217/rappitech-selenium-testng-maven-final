@@ -134,7 +134,10 @@ public class LoginPage {
         return passwordRequiredMessage.getText();
     }
 
-
+    /**
+     * This method will get the error message when user enter wrong username and password
+     * @return text -> The error message when user enter wrong username and password
+     */
     public String getErrorMessageForWrongUserNamePassword(){
         logger.info("Getting the error message when selecting wrong username and password");
         return wrongUserNameAndPasswordLabel.getText();
