@@ -37,42 +37,70 @@ public class CheckoutPage {
     @FindBy(xpath = "//input[@id='continue']")
     WebElement continueButton;
 
-
+    /**
+     * This method will return true/false if field is displayed or not
+     * @return true/false
+     */
     public boolean isCheckoutMainLabelDisplayed(){
         return checkoutLabel.isDisplayed();
     }
-
+    /**
+     * This method will return true/false if field is displayed or not
+     * @return true/false
+     */
     public boolean isFirstNameInputBoxDisplayed(){
         return  firstNameInputBox.isDisplayed();
     }
-
+    /**
+     * This method will return true/false if field is displayed or not
+     * @return true/false
+     */
     public boolean isLastNameInputBoxDisplayed(){
         return  lastNameInputBox.isDisplayed();
     }
-
+    /**
+     * This method will return true/false if field is displayed or not
+     * @return true/false
+     */
     public boolean isContinueButtonDisplayed(){
         return continueButton.isDisplayed();
     }
-
+    /**
+     * This method will return true/false if field is displayed or not
+     * @return true/false
+     */
     public boolean isCancelButtonDisplayed(){
         return cancelButton.isDisplayed();
     }
 
-
+    /**
+     * This method will enter a Firstname
+     * @param firstName we want to enter
+     */
     public void enterFirstName(String firstName){
         logger.info("Entering "+ firstName + " into the First Name input box");
         firstNameInputBox.sendKeys(firstName);
     }
+    /**
+     * This method will enter a lastName
+     * @param lastName we want to enter
+     */
     public void enterLastName(String lastName){
         logger.info("Entering "+ lastName + " into the Last Name input box");
         lastNameInputBox.sendKeys(lastName);
     }
-
+    /**
+     * This method will enter a zipCode
+     * @param zipCode we want to enter
+     */
     public void enterZipCode(String zipCode){
         logger.info("Entering "+ zipCode + " into Zip Code input box");
         zipCodeInputBox.sendKeys(zipCode);
     }
 
+    /**
+     * This method will click on continue button
+     */
     public void clickOnContinueButton(){
         logger.info("Clicking on Continue button");
         continueButton.click();
