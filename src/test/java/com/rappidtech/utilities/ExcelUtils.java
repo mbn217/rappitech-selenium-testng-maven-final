@@ -68,23 +68,23 @@ public class ExcelUtils {
 
         for (int i = 0; i < numberOfRecords; i++) {
             Row row = sheet.createRow(i);
-            Cell firstName = row.createCell(0);
-            Cell password = row.createCell(1);
+            Cell firstName = row.createCell(0);// first column is firstName
+            Cell password = row.createCell(1);// second column is password
 
-            firstName.setCellValue(faker.name().firstName());
+            firstName.setCellValue(faker.name().firstName());// set value of firstName using faker
             password.setCellValue(faker.internet().password());// set value of password using faker
         }
 
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(fileName);
-            workbook.write(fileOutputStream);
+            FileOutputStream fileOutputStream = new FileOutputStream(fileName);// create a file
+            workbook.write(fileOutputStream); // write the excel into a file
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
             try {
-                workbook.close();
+                workbook.close();// close workbook
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -5,12 +5,10 @@ import com.aventstack.extentreports.Status;
 import com.rappidtech.pages.CartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 
@@ -19,6 +17,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * This class will have all the method that are reusable to implement inside out test
@@ -53,7 +53,20 @@ public class SeleniumUtils {
         wait.until(ExpectedConditions.elementToBeSelected(elementToWaitFor));
     }
 
+    /**
+     * This method will wait for an element until its visible using Fluent Wait
+     * @param driver instance of the browser
+     * @param elementToWaitFor element in the page to wait for its visibility
+     */
+    public static void fluentWaitForElementVisibility(WebDriver driver , WebElement elementToWaitFor){
+        logger.info("Waiting using Fluent wait for an element until its visible");
+        FluentWait<WebDriver> wait = new FluentWait<>(driver) ;
+        wait.withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(2))// checking every two seconds , first time checks at 0 if element is visible  then checks again at 2s then at 4s then at 6s etc... until 10 seconds max is reached
+                .ignoring(ElementNotInteractableException.class);
 
+        wait.until(ExpectedConditions.visibilityOf(elementToWaitFor));
+    }
 
     /**
      * This method takes a screenshot and returns the filepath to the png file
@@ -62,6 +75,7 @@ public class SeleniumUtils {
      * @return the path to the screenshot that was taken
      */
     public static String  getScreenShotPath(WebDriver driver, String screenShotName){
+        logger.info("Taking Screen shot and returning path of the image");
         String path;
         String finalPath;
         // below code will get the current date in below format and return a string representation and assign it to date variable
@@ -98,8 +112,7 @@ public class SeleniumUtils {
      *                   most likely in the BaseClass
      */
     public static void getResults(ITestResult result , WebDriver driver, ExtentTest extentTest){
-        System.out.println(result.getName()  + "-------> {" + result.getStatus() + "}  <---------");
-
+        logger.info(result.getName()  + "-------> {" + result.getStatus() + "}  <---------");
         if(result.getStatus() == ITestResult.FAILURE){
             //if the test fail then log FAIL to extent report and get the error logs
             extentTest.log(Status.FAIL, "Test Case: " + result.getName() +" Failed\n" + result.getThrowable());
@@ -108,10 +121,85 @@ public class SeleniumUtils {
             //attach screenshot to the failed test
             extentTest.addScreenCaptureFromPath(screenShotPath);
         } else if (result.getStatus() == ITestResult.SKIP) {
-            extentTest.log(Status.SKIP, "Test Case: " + result.getName() +" Passed");
+            extentTest.log(Status.SKIP, "Test Case: " + result.getName() +" Skipped");
         } else{
             extentTest.log(Status.PASS, "Test Case: " + result.getName() +" Passed");
         }
     }
+
+    /**
+     * Switch to new window/tab
+     * @param driver instance of the browser
+     */
+    public static void switchToNewWindow(WebDriver driver) {
+        logger.info("Switching to new tab/window");
+        Set s = driver.getWindowHandles();
+        Iterator itr = s.iterator();
+        String w1 = (String) itr.next();
+        String w2 = (String) itr.next();
+        driver.switchTo().window(w2);
+    }
+    /**
+     * Switch to old window/tab
+     * @param driver instance of the browser
+     */
+    public static void switchToOldWindow(WebDriver driver) {
+        logger.info("Switching to old tab/window");
+        Set s = driver.getWindowHandles();
+        Iterator itr = s.iterator();
+        String w1 = (String) itr.next();
+        String w2 = (String) itr.next();
+        driver.switchTo().window(w1);
+    }
+    /**
+     * Switch to default window/tab
+     * @param driver instance of the browser
+     */
+    public static void switchToParentWindow(WebDriver driver) {
+        logger.info("Switching to default tab/window");
+        driver.switchTo().defaultContent();
+    }
+
+    /**
+     * Click on element using javascriptExecutor
+     * @param driver instance of the browser
+     * @param element the element we want to click
+     */
+    public static void clickElementWithJavaScriptExecutor(WebDriver driver, WebElement element){
+        logger.info("Clicking on element using JS");
+        JavascriptExecutor js =  (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
+    }
+    /**
+     * highlight on element using javascriptExecutor
+     * @param driver instance of the browser
+     * @param element the element we want to highlight
+     */
+    private static void highlightElement(WebDriver driver, WebElement element) {
+        logger.info("highlight on element using JS");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        // Execute JavaScript code to apply a border and change background color
+        js.executeScript("arguments[0].setAttribute('style', 'border: 2px solid red; background-color: yellow;');", element);
+        // Wait for a short duration to see the highlighted effect (optional)
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // Execute JavaScript code to remove the highlighting
+        js.executeScript("arguments[0].setAttribute('style', 'border: none; background-color: none;');", element);
+    }
+    /**
+     * scroll to an element using javascriptExecutor
+     * @param driver instance of the browser
+     * @param element the element we want to scroll to
+     */
+    public static void scrollToElementUsingJavaScriptExecutor(WebDriver driver, WebElement element){
+        logger.info("scroll to an element using JS");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();",element);
+    }
+
+
 
 }
