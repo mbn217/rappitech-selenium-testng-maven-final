@@ -6,6 +6,8 @@ import com.rappidtech.pages.CartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -198,6 +200,72 @@ public class SeleniumUtils {
         logger.info("scroll to an element using JS");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();",element);
+    }
+
+    /**
+     * This method will drag an element from location and drop it into another location
+     * using basic drag and drop method
+     * @param driver instance of the browser
+     * @param fromWebElement from which element
+     * @param toWebElement to which element
+     */
+    public static void dragAndDrop(WebDriver driver ,WebElement fromWebElement, WebElement toWebElement) {
+        logger.info("Drag and drop element");
+        Actions builder = new Actions(driver);
+        builder.dragAndDrop(fromWebElement, toWebElement);
+    }
+    /**
+     * This method will drag an element from location and drop it into another location
+     * using action class and movetoelement
+     * @param driver instance of the browser
+     * @param fromWebElement from which element
+     * @param toWebElement to which element
+     */
+    public static void dragAndDrop_Method2(WebDriver driver ,WebElement fromWebElement, WebElement toWebElement) {
+        logger.info("Drag and drop element");
+        Actions builder = new Actions(driver);
+        Action dragAndDrop = builder.clickAndHold(fromWebElement)
+                .moveToElement(toWebElement).release(toWebElement).build();
+        dragAndDrop.perform();
+    }
+    /**
+     * This method will drag an element from location and drop it into another location
+     * using clickAndHold method
+     * @param driver instance of the browser
+     * @param fromWebElement from which element
+     * @param toWebElement to which element
+     */
+    public static void dragAndDrop_Method3(WebDriver driver ,WebElement fromWebElement, WebElement toWebElement) {
+        logger.info("Drag and drop element");
+        Actions builder = new Actions(driver);
+        builder.clickAndHold(fromWebElement).moveToElement(toWebElement)
+                .perform();
+        builder.release(toWebElement).build().perform();
+    }
+
+    /**
+     * THis method will hover to an element using action class
+     * @param driver instance of the browser
+     * @param HovertoWebElement element we want to hover to
+     * @throws InterruptedException
+     */
+    public static void hoverWebelement(WebDriver driver ,WebElement HovertoWebElement) {
+        logger.info("Hover to an element");
+        Actions builder = new Actions(driver);
+        builder.moveToElement(HovertoWebElement).perform();
+
+    }
+
+    /**
+     * This method will double click an element using action class
+     * @param driver instance of the browser
+     * @param doubleclickonWebElement element we want to double click
+     * @throws InterruptedException
+     */
+    public static void doubleClickWebelement(WebDriver driver ,WebElement doubleclickonWebElement) {
+        logger.info("double click on an element");
+        Actions builder = new Actions(driver);
+        builder.doubleClick(doubleclickonWebElement).perform();
     }
 
 
