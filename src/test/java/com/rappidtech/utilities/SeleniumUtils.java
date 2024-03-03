@@ -29,6 +29,7 @@ import java.util.Set;
  */
 public class SeleniumUtils {
     private static final Logger logger = LogManager.getLogger(SeleniumUtils.class);
+    public static WebDriver driver;
 
 
     /**
@@ -201,6 +202,19 @@ public class SeleniumUtils {
         logger.info("scroll to an element using JS");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();",element);
+    }
+
+    /**
+     * scroll to central view of the element using javascriptExecutor
+     * @param driver instance of the browser
+     * @param element the element we want to scroll to
+     */
+    public static void scrollElementToCenterView(WebDriver driver, WebElement element) {
+        logger.info("scroll to center of an element using JS");
+        String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
+                + "var elementTop = arguments[0].getBoundingClientRect().top;"
+                + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
+        ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
     }
 
     /**
