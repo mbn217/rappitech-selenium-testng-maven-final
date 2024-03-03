@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 
@@ -268,6 +269,37 @@ public class SeleniumUtils {
         builder.doubleClick(doubleclickonWebElement).perform();
     }
 
+    /**
+     * This method will select a value from Selection Dropdown using Name
+     * @param element the element that had the dropdown selection
+     * @param Name the name of the selection we want to select
+     */
+    public static void selectElementByName(WebElement element, String Name) {
+        logger.info("select a value from a dropdown selection");
+        Select selectItem = new Select(element);
+        selectItem.selectByVisibleText(Name);
+    }
 
+    /**
+     * This method will select a value from Selection Dropdown using value
+     * @param element the element that had the dropdown selection
+     * @param value the value of the selection we want to select
+     */
+    public static void selectElementByValue(WebElement element, String value) {
+        logger.info("select a value from a dropdown selection");
+        Select selectItem = new Select(element);
+        selectItem.selectByValue(value);
+    }
+
+    /**
+     * This method will select a value from Selection Dropdown using index
+     * @param element the element that had the dropdown selection
+     * @param index the index of the selection we want to select
+     */
+    public static void selectElementByIndex(WebElement element, int index) {
+        logger.info("select a value from a dropdown selection");
+        Select selectItem = new Select(element);
+        selectItem.selectByIndex(index);
+    }
 
 }
