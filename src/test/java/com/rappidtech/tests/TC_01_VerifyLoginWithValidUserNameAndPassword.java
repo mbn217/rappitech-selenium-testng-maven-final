@@ -1,5 +1,6 @@
 package com.rappidtech.tests;
 
+import com.google.common.util.concurrent.AtomicDouble;
 import com.rappidtech.utilities.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
