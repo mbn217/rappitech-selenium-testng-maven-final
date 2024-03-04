@@ -2,7 +2,6 @@ package com.rappidtech.utilities;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.rappidtech.pages.CartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
@@ -29,7 +28,6 @@ import java.util.Set;
  */
 public class SeleniumUtils {
     private static final Logger logger = LogManager.getLogger(SeleniumUtils.class);
-    public static WebDriver driver;
 
 
     /**
@@ -43,7 +41,6 @@ public class SeleniumUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(secondToWaitFor));
         wait.until(ExpectedConditions.visibilityOf(elementToWaitFor));
     }
-
 
     /**
      * This method will use explicit wait to wait for an element to be selected
@@ -75,7 +72,7 @@ public class SeleniumUtils {
     /**
      * This method takes a screenshot and returns the filepath to the png file
      * @param driver THis is the driver that needs to pass to the method at runtime
-     * @param screenShotName This is the scrennshot name
+     * @param screenShotName This is the screenshot name
      * @return the path to the screenshot that was taken
      */
     public static String  getScreenShotPath(WebDriver driver, String screenShotName){
@@ -106,13 +103,13 @@ public class SeleniumUtils {
 
     /**
      * This will get the results of the test cases and output the status to the extent report
-     * We have PASS/FAIL/SKIPPED , in case of Failure a screen shot method will be called
+     * We have PASS/FAIL/SKIPPED , in case of Failure a screenshot method will be called
      * @Author Mo
      * @param result This is the result reference object that needs to be passed when method is called
      *               Its it more useful if its used in the @After method so we can capture the results of the
      *               Test case and log the pass/fail/skipped statuses
      * @param driver this is the driver object that needs to pass at  runtime ( at the calling of the method)
-     * @param extentTest this is the extenttest object that needs to be passed when this method is called
+     * @param extentTest this is the extent test object that needs to be passed when this method is called
      *                   most likely in the BaseClass
      */
     public static void getResults(ITestResult result , WebDriver driver, ExtentTest extentTest){

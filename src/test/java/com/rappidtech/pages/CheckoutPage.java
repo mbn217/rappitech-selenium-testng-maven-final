@@ -42,6 +42,7 @@ public class CheckoutPage {
      * @return true/false
      */
     public boolean isCheckoutMainLabelDisplayed(){
+        logger.info("Checking if element is displayed");
         return checkoutLabel.isDisplayed();
     }
     /**
@@ -49,6 +50,7 @@ public class CheckoutPage {
      * @return true/false
      */
     public boolean isFirstNameInputBoxDisplayed(){
+        logger.info("Checking if element is displayed");
         return  firstNameInputBox.isDisplayed();
     }
     /**
@@ -56,6 +58,7 @@ public class CheckoutPage {
      * @return true/false
      */
     public boolean isLastNameInputBoxDisplayed(){
+        logger.info("Checking if element is displayed");
         return  lastNameInputBox.isDisplayed();
     }
     /**
@@ -63,6 +66,7 @@ public class CheckoutPage {
      * @return true/false
      */
     public boolean isContinueButtonDisplayed(){
+        logger.info("Checking if element is displayed");
         return continueButton.isDisplayed();
     }
     /**
@@ -70,6 +74,7 @@ public class CheckoutPage {
      * @return true/false
      */
     public boolean isCancelButtonDisplayed(){
+        logger.info("Checking if element is displayed");
         return cancelButton.isDisplayed();
     }
 

@@ -20,6 +20,7 @@ public class TC_01_VerifyLoginWithValidUserNameAndPassword extends TestBase{
      */
     @Test
     public void verify_Login_With_Valid_User_Name_And_Password(){
+        logger.info(" Verify Login with Valid UserName and Password");
         extentTest = extentReports.createTest(" Verify Login with Valid UserName and Password");
         String expectedTwitterLink = "https://twitter.com/saucelabs"; // From the requirement document
         String expectedFacebookLink = "https://www.facebook.com/saucelabs";// From the requirement document
