@@ -4,15 +4,15 @@
     <test name="Smoke Test">
         <parameter name="browserType" value="chrome"></parameter>
         <groups>
-            <!-- This group will run only the test cases that are tagged with "smoke"             -->
+            <!-- This group will run only the test cases that are tagged with "regression"             -->
             <run>
-                <include name="smoke"/>
+                <include name="regression"/>
             </run>
         </groups>
         <packages>
             <package name="com.rappidtech.tests"></package>
         </packages>
-        
+
     </test>
 
 </suite>

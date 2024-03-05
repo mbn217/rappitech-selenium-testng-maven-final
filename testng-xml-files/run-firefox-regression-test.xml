@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Smoke Test Suite">
     <test name="Smoke Test">
-        <parameter name="browserType" value="chrome"></parameter>
+        <parameter name="browserType" value="firefox"></parameter>
         <groups>
-            <!-- This group will run only the test cases that are tagged with "smoke"             -->
+            <!-- This group will run only the test cases that are tagged with "regression"             -->
             <run>
-                <include name="smoke"/>
+                <include name="regression"/>
             </run>
         </groups>
         <packages>
             <package name="com.rappidtech.tests"></package>
         </packages>
-        
+
     </test>
 
 </suite>

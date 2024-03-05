@@ -1,11 +1,12 @@
 package com.rappidtech.tests;
 
 import com.github.javafaker.Faker;
+import com.rappidtech.listeners.ReportListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 public class TC_13_VerifyCheckoutOverview extends TestBase{
     private static final Logger logger = LogManager.getLogger(TC_13_VerifyCheckoutOverview.class);
 

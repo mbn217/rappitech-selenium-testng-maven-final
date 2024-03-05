@@ -12,10 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 public class TestBase {
     private static final Logger logger = LogManager.getLogger(TestBase.class);
@@ -45,10 +42,11 @@ public class TestBase {
 
 
     @BeforeMethod(groups = {"smoke","regression"})
-    public void setup(){
+    @Parameters(value = "browserType")
+    public void setup(@Optional("chrome")  String browserType){
         logger.info("Setting up the driver...");
         extentReports = ExtentFactory.getInstance();
-        driver = Driver.getDriver(ConfigurationReader.getProperty("browserType"));// Initializing the driver
+        driver = Driver.getDriver(browserType);// Initializing the driver
         loginPage = new LoginPage(driver);// Initializing login page
         mainPage = new MainPage(driver);// Initializing main page
         cartPage = new CartPage(driver);// Initializing cart page
