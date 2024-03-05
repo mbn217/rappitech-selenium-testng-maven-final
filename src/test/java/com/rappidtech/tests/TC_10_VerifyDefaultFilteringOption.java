@@ -13,7 +13,7 @@ public class TC_10_VerifyDefaultFilteringOption extends TestBase{
      * verify that the Default filtering option is set to {Name(A to Z)}
      */
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_Default_Filtering_Option(){
         logger.info("Verify default filtering options");
         extentTest = extentReports.createTest("Verify default filtering options");

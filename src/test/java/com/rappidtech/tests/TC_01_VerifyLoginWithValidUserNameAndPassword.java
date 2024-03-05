@@ -19,7 +19,7 @@ public class TC_01_VerifyLoginWithValidUserNameAndPassword extends TestBase{
      * https://www.facebook.com/saucelabs
      * https://www.linkedin.com/company/sauce-labs/
      */
-    @Test
+    @Test(groups = {"smoke" , "regression"})
     public void verify_Login_With_Valid_User_Name_And_Password(){
         logger.info(" Verify Login with Valid UserName and Password");
         extentTest = extentReports.createTest(" Verify Login with Valid UserName and Password");

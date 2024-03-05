@@ -12,7 +12,7 @@ public class TC_05_VerifyLoginWithEmptyPassword extends TestBase{
      * {Epic sadface: Password is required} should be displayed
      */
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_Login_With_Empty_Password(){
         logger.info("Verify login with empty password");
         extentTest = extentReports.createTest("Verify login with empty password");

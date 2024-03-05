@@ -14,7 +14,7 @@ public class TC_11_VerifyItemInCart extends TestBase{
      */
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void Verify_Item_Is_Added_To_Cart(){
         logger.info("Verifying that adding Sauce Labs Backpack is available in the Cart Page ");
         extentTest = extentReports.createTest("Verifying that adding Sauce Labs Backpack is available in the Cart Page ");

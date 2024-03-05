@@ -31,20 +31,20 @@ public class TestBase {
     public static ExtentTest extentTest;
 
 
-    @BeforeTest
+    @BeforeTest(groups = {"smoke","regression"})
     public void startReport() {
         //Initialize the Extent Reporter
         extentReports = ExtentFactory.getInstance();
     }
 
-    @AfterTest
+    @AfterTest(groups = {"smoke","regression"})
     public void endReport() {
         extentReports.flush();
     }
 
 
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"smoke","regression"})
     public void setup(){
         logger.info("Setting up the driver...");
         extentReports = ExtentFactory.getInstance();
@@ -57,7 +57,7 @@ public class TestBase {
         driver.get(ConfigurationReader.getProperty("url"));
     }
 
-    @AfterMethod
+    @AfterMethod(groups = {"smoke","regression"})
     public void tearDown(ITestResult result){
         logger.info("Closing the driver...");
         SeleniumUtils.getResults(result , driver , extentTest);

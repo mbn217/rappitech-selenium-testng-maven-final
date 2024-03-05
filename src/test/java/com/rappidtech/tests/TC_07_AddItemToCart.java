@@ -13,7 +13,7 @@ public class TC_07_AddItemToCart extends TestBase{
      * I should be able to se the Cart icon updated with One Item
      */
 
-    @Test
+    @Test(groups = {"smoke"})
     public void add_Item_To_Cart_For_Back_Pack(){
         logger.info("Add item to cart for the back pack");
         extentTest = extentReports.createTest("Add item to cart for the back pack");

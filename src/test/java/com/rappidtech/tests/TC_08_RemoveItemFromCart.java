@@ -15,7 +15,7 @@ public class TC_08_RemoveItemFromCart extends TestBase{
      * show the change
      */
 
-    @Test
+    @Test(groups = {"smoke"})
     public void verify_Item_Is_Removed_From_Cart_Badge(){
         logger.info("Verify item is removed from the Cart Badge");
         extentTest = extentReports.createTest("Verify item is removed from the Cart Badge");

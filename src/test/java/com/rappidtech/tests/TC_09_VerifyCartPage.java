@@ -13,7 +13,7 @@ public class TC_09_VerifyCartPage extends TestBase{
      * As a User when I login to SauceDemo and I Click on Add to cart icon , I should be able to see two buttons
      * Continute Shopping and Checkount. I should be able to see QTY and Description Labels
      */
-    @Test
+    @Test(groups = {"smoke"})
     public void verify_Elements_In_Cart_Page_Are_Displayed(){
         logger.info("Verify elements in cart page are displayed");
         extentTest = extentReports.createTest("Verify elements in cart page are displayed");

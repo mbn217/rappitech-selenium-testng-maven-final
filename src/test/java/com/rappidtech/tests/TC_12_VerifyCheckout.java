@@ -15,7 +15,7 @@ public class TC_12_VerifyCheckout extends TestBase{
      * I should be able to see the two buttons {Cancel} and {Continue}
      */
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_CheckoutPage_Labels(){
         logger.info("Verifying checkout page labels");
         extentTest = extentReports.createTest("Verifying checkout page labels ");

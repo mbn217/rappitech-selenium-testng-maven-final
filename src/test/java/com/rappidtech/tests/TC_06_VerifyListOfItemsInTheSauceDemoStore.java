@@ -21,7 +21,7 @@ public class TC_06_VerifyListOfItemsInTheSauceDemoStore extends TestBase{
      * Test.allTheThings() T-Shirt (Red)
      */
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_List_Of_Items_In_The_SauceDemo_Store(){
         logger.info("Verify list of items in the sauce demo store");
         extentTest = extentReports.createTest("Verify list of items in the sauce demo store");

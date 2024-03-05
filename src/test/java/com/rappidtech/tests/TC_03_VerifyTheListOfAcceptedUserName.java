@@ -17,7 +17,7 @@ public class TC_03_VerifyTheListOfAcceptedUserName extends TestBase{
      * visual_user
      */
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_The_List_Of_Accepted_UserName(){
         logger.info("Verify The list of the accepted usernames");
         extentTest = extentReports.createTest("Verify The list of the accepted usernames");

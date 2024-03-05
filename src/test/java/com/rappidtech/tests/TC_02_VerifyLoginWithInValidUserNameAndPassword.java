@@ -16,7 +16,7 @@ public class TC_02_VerifyLoginWithInValidUserNameAndPassword extends TestBase{
      * get a message {Sorry, this user has been locked out.}
      */
 
-    @Test
+    @Test(groups = {"smoke"})
     public void verify_Login_With_InValid_UserName_And_Password(){
         logger.info("Verify login with Invalid username and password test case");
         extentTest = extentReports.createTest("Verify login with Invalid username and password test case");
@@ -28,7 +28,7 @@ public class TC_02_VerifyLoginWithInValidUserNameAndPassword extends TestBase{
     }
 
 
-    @Test(dataProvider = "data-login")
+    @Test(dataProvider = "data-login" , groups = {"smoke"})
     public void verify_Login_With_Invalid_UserName_And_Password_List(String userName, String password){
         logger.info("Verify login with Invalid username and password test case");
         extentTest = extentReports.createTest("Verify login with Invalid username and password test case");

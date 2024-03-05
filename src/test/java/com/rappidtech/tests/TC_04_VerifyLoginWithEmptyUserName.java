@@ -14,7 +14,7 @@ public class TC_04_VerifyLoginWithEmptyUserName extends TestBase{
 
 
 
-    @Test
+    @Test(groups = {"regression"})
     public void verify_Login_With_Empty_UserName(){
         logger.info("Verify login with empty username");
         extentTest = extentReports.createTest("Verify login with empty username");
