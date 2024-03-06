@@ -3,10 +3,14 @@ package com.rappidtech.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * Driver class that will take care of the logic for the WebDriver and getting instances of the driver back
@@ -36,6 +40,19 @@ public class Driver {
                     logger.info("Starting a Edge browser");
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
+                    break;
+                case "headless-chrome":
+                    logger.info("Starting a Chrome headless browser");
+                    //WebDriverManager.chromedriver().setup();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--headless=new");
+                    driver = new ChromeDriver(chromeOptions);
+                    break;
+                case "headless-firefox":
+                    logger.info("Starting a firefox headless browser");
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.addArguments("-headless");
+                    driver = new FirefoxDriver(firefoxOptions);
                     break;
                 default:
                     logger.info("Starting a Chrome browser");
